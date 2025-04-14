@@ -1,7 +1,7 @@
 'use client'
 
 import { useAccount } from 'wagmi'
-import { Web3Button } from '@web3modal/react'
+import { Web3Modal } from '@web3modal/wagmi/react'
 
 export default function Home() {
   const { address, isConnected } = useAccount()
@@ -19,7 +19,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white p-8">
       <header className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold">🧠 Web3 Dashboard</h1>
-        <Web3Button />
+        <Web3Modal />
       </header>
 
       {isConnected && (
