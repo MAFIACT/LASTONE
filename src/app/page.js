@@ -27,6 +27,7 @@ export default function Home() {
           <section className="mb-8">
             <h2 className="text-xl mb-2">💰 Your PNL</h2>
             <p className="text-3xl font-bold text-green-400">${pnl.toLocaleString()}</p>
+            <p className="text-sm text-gray-500 mt-1">Connected: {address}</p>
           </section>
           <section>
             <h2 className="text-xl mb-4">📦 Portfolio</h2>
