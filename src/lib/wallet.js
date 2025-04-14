@@ -8,8 +8,8 @@ const projectId = '050d3abd2409cfc2ab142c17fbd0a77c'
 
 const metadata = {
   name: 'Web3 Dashboard',
-  description: 'PNL & Wallet on Base chain',
-  url: 'https://finalmodal-eta.vercel.app/',
+  description: 'Connect Wallet & View PNL',
+  url: 'https://finalmodal-eta.vercel.app',
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 }
 
