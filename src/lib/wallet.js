@@ -1,18 +1,28 @@
 'use client'
 
-import { configureChains, createConfig } from 'wagmi'
+import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi'
+import { WagmiConfig } from 'wagmi'
 import { base } from 'wagmi/chains'
-import { publicProvider } from 'wagmi/providers/public'
-import { EthereumClient } from '@web3modal/ethereum'
-import { Web3Modal } from '@web3modal/react'
 
-export const projectId = '050d3abd2409cfc2ab142c17fbd0a77c' // Replace with your actual WalletConnect project ID
+const projectId = '050d3abd2409cfc2ab142c17fbd0a77c'
 
-const { chains, publicClient } = configureChains([base], [publicProvider()])
+const metadata = {
+  name: 'Web3 Dashboard',
+  description: 'PNL & Wallet on Base chain',
+  url: 'https://finalmodal-eta.vercel.app/',
+  icons: ['https://avatars.githubusercontent.com/u/37784886']
+}
 
-export const wagmiConfig = createConfig({
-  autoConnect: true,
-  publicClient
+const chains = [base]
+
+const config = defaultWagmiConfig({
+  projectId,
+  chains,
+  metadata
 })
 
-export const ethereumClient = new EthereumClient(wagmiConfig, chains)
+createWeb3Modal({ projectId, chains, wagmiConfig: config })
+
+export function Web3Provider({ children }) {
+  return <WagmiConfig config={config}>{children}</WagmiConfig>
+}
